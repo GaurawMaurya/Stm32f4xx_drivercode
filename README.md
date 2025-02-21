@@ -20,4 +20,4 @@ Features:
 
 Target Hardware
 Microcontroller: STM32F4 series
-Development Board: Any STM32F4-based board (e.g., STM32F407 Discovery)
+Development Board: STM32F407 Discovery
