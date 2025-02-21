@@ -1,4 +1,4 @@
-STM32F4 Bare-Metal Driver for RCC and GPIO
+#STM32F4 Bare-Metal Driver for RCC and GPIO
 This repository contains a bare-metal driver implementation for the STM32F4 development board, focusing on:
 
 RCC (Reset and Clock Control): Configuring system and peripheral clocks.
