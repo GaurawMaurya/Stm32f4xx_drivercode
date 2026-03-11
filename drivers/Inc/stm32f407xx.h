@@ -12,6 +12,23 @@
 
 #define __vo volatile
 
+/****************************START: Processor Specific Details******************************************/
+/*
+ * ARM cortex Mx Processor NVIC ISERx register addresses
+ */
+#define NVIC_ISER0				((__vo uint32_t*)0XE000E100)
+#define NVIC_ISER1				((__vo uint32_t*)0XE000E104)
+#define NVIC_ISER2				((__vo uint32_t*)0XE000E108)
+#define NVIC_ISER3				((__vo uint32_t*)0XE000E10C)
+
+/*
+ * ARM cortex Mx Processor NVIC ICERx register addresses
+ */
+#define NVIC_ICER0				((__vo uint32_t*)0XE000E180)
+#define NVIC_ICER1				((__vo uint32_t*)0XE000E184)
+#define NVIC_ICER2				((__vo uint32_t*)0XE000E188)
+#define NVIC_ICER3				((__vo uint32_t*)0XE000E18C)
+
 /*
  * base address of SRAM and Flash memories
  */
@@ -96,6 +113,9 @@ typedef struct
 	 	 	 	 	 	 	 	 	       !< AFR[1]: GPIO alternate function high register Address offset: 0x24 */
 }GPIO_RegDef_t;
 
+/*
+ * peripheral register definition structure for RCC
+ */
 typedef struct
 {
 	__vo uint32_t RCC_CR;					/* !< TODO 						Address offset: 0x00 */
@@ -132,6 +152,37 @@ typedef struct
 	__vo uint32_t RCC_DCKCFGR;				/* !< TODO 						Address offset: 0x00 */
 }RCC_RegDef_t;
 
+
+
+/*
+ * peripheral register definition structure for EXTI
+ */
+typedef struct
+{
+	__vo uint32_t IMR;				/* !< TODO 						Address offset: 0x00 */
+	__vo uint32_t EMR;				/* !< TODO 						Address offset: 0x00 */
+	__vo uint32_t RTSR;				/* !< TODO 						Address offset: 0x00 */
+	__vo uint32_t FTSR;				/* !< TODO 						Address offset: 0x00 */
+	__vo uint32_t SWIER;			/* !< TODO 						Address offset: 0x00 */
+	__vo uint32_t PR;				/* !< TODO 						Address offset: 0x00 */
+}EXTI_RegDef_t;
+
+
+
+/*
+ * peripheral register definition structure for SYSCFG
+ */
+typedef struct
+{
+	__vo uint32_t MEMRMP;				/* !< TODO 						Address offset: 0x00 */
+	__vo uint32_t PMC;				/* !< TODO 						Address offset: 0x00 */
+	__vo uint32_t EXTICR[4];				/* !< TODO 						Address offset: 0x00 */
+	 	 uint32_t RESERVED1[2];				/* !< TODO 						Address offset: 0x00 */
+	__vo uint32_t CMPCR;			/* !< TODO 						Address offset: 0x00 */
+		uint32_t RESERVED2[2];				/* !< TODO 						Address offset: 0x00 */
+	__vo uint32_t CFGR;
+}SYSCFG_RegDef_t;
+
 /*
  * peripheral definitions (peripherals base addresses type-casted to xx RegDef_t)
  */
@@ -147,7 +198,9 @@ typedef struct
 
 #define RCC 		((RCC_RegDef_t*)RCC_BASEADDR)
 
+#define EXTI 		((EXTI_RegDef_t*)EXTI_BASEADDR)
 
+#define SYSCFG 		((SYSCFG_RegDef_t*)SYSCFG_BASEADDR)
 /*
  * Clock Enable Macros for GPIOx peripherals
  */
