@@ -30,6 +30,13 @@
 #define NVIC_ICER3				((__vo uint32_t*)0XE000E18C)
 
 /*
+ * ARM cortex Mx Processor Priority register addresses
+ */
+#define NVIC_PR_BASE_ADDR		((__vo uint32_t*)0XE000E400)
+
+#define NO_PR_BITS_IMPLEMENTED	4
+/****************************								  ******************************************/
+/*
  * base address of SRAM and Flash memories
  */
 #define FLASH_BASEADDR		0x08000000U 	//from data-manual
